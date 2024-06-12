@@ -5,7 +5,7 @@ class Hasta:
         self.conn = sqlite3.connect('hastane.db')
         self.cursor = self.conn.cursor()
         self.create_table()
-        self.triage_color("White", "Red", "Yellow", "Black")
+        self.triage_color = ("White", "Red", "Yellow", "Black")
         
     def create_table(self):
         self.cursor.execute('''

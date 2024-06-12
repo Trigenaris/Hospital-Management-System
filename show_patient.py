@@ -103,6 +103,7 @@ class Ui_ShowPatient(object):
         self.pushButton_3.clicked.connect(self.open_delete_patient)
         
         self.hasta = Hasta.Hasta() 
+        self.delete_patient_window = None
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -144,11 +145,10 @@ class Ui_ShowPatient(object):
             self.tableWidget.setItem(row, 7, QTableWidgetItem(patient["Situation"]))
 
     def open_delete_patient(self):
-        # Implement the logic to open the delete_patient functionality
-        delete_patient_window = QtWidgets.QMainWindow()
-        delete_ui = delete_patient.Ui_DeletePatient()  # Assuming you have a class Ui_DeletePatient in delete_patient module
-        delete_ui.Ui_DeletePatient(delete_patient_window)
-        delete_patient_window.show()
+        self.delete_patient_window = QtWidgets.QMainWindow()
+        delete_ui = delete_patient.Ui_DeletePatient()
+        delete_ui.setupUi(self.delete_patient_window)
+        self.delete_patient_window.show()
 
 if __name__ == "__main__":
     import sys
